@@ -39,64 +39,7 @@
             </select>
             <button onclick="openSaveModal()">Save Locally</button>
             <button onclick="openGitHubModal()">Upload to GitHub</button>
-            <button id="share-btn">Share</button>
             
-            <!-- theme selector -->
-<select id="theme-select">
-    <option value="vs-dark">Dark</option>
-    <option value="vs-light">Light</option>
-</select>
-<!-- terminal panel -->
-<div id="terminal-panel">
-    <div id="terminal"></div>
-</div>
-<!-- version control panel -->
-<div id="version-control-panel">
-    <button id="commit-changes">Commit Changes</button>
-    <button id="view-history">View History</button>
-    
-</div>
-
-</div>
-
-
-        </div>
-    </div>
-   Welcome to Codeonline&#8482;, A website made by Harris Sagiris
-   ||Codeonline&#8482;and other trademarks are registered trademarks of Codeonline©
-   ||For support : support@codeonline.gr
-    <!-- Save Modal -->
-    <div id="save-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeSaveModal()">&times;</span>
-            <h2>Save File</h2>
-            <form id="save-form" onsubmit="saveLocal(); return false;">
-                <input type="text" id="file-name" placeholder="Enter file name" autofocus>
-                <button type="submit">Save</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- GitHub Modal -->
-    <div id="github-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeGitHubModal()">&times;</span>
-            <h2>Upload to GitHub</h2>
-            <input type="text" id="github-token" placeholder="Enter GitHub token">
-            <input type="text" id="repo-name" placeholder="Enter repository name (e.g., username/repo)">
-            <input type="text" id="file-path" placeholder="Enter file path in repository (e.g., path/to/file.js)">
-            <button onclick="uploadToGitHub()">Upload</button>
-        </div>
-    </div>
-    
-
-    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js"></script>
-    <script src="firebase-config.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.33.0/min/vs/loader.js"></script>
-    <script src="editor.js"></script>
-</body>
-
     <!-- Button to load a file -->
     <button id="load-file-btn">Load File from your device!</button>
 
@@ -133,6 +76,61 @@ document.getElementById('file-input').addEventListener('change', function(event)
 });
 
 </script>
+            
+            <!-- theme selector -->
+<select id="theme-select">
+    <option value="vs-dark">Dark</option>
+    <option value="vs-light">Light</option>
+</select>
+<!-- terminal panel -->
+<div id="terminal-panel">
+    <div id="terminal"></div>
+</div>
+<!-- version control panel -->
+<div id="version-control-panel">
+    <button id="commit-changes">Commit Changes</button>
+    <button id="view-history">View History</button>
+    
+</div>
+
+</div>
+
+
+        </div>
+    </div>
+   Welcome to Codeonline&#8482;, A website made by Harris Sagiris
+   <p>Codeonline and other trademarks are registered trademarks of Codeonline©</p> For support : support@codeonline.gr
+    <!-- Save Modal -->
+    <div id="save-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSaveModal()">&times;</span>
+            <h2>Save File</h2>
+            <form id="save-form" onsubmit="saveLocal(); return false;">
+                <input type="text" id="file-name" placeholder="Enter file name" autofocus>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- GitHub Modal -->
+    <div id="github-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeGitHubModal()">&times;</span>
+            <h2>Upload to GitHub</h2>
+            <input type="text" id="github-token" placeholder="Enter GitHub token">
+            <input type="text" id="repo-name" placeholder="Enter repository name (e.g., username/repo)">
+            <input type="text" id="file-path" placeholder="Enter file path in repository (e.g., path/to/file.js)">
+            <button onclick="uploadToGitHub()">Upload</button>
+        </div>
+    </div>
+    
+
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.33.0/min/vs/loader.js"></script>
+    <script src="editor.js"></script>
+</body>
 </html>
 
 
