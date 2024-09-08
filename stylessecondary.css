@@ -1,0 +1,394 @@
+/* General Body Styling */
+body {
+    font-family: 'Source Code Pro', monospace;
+    background-color: #1e1e1e; /* Dark background for reduced eye strain */
+    color: #dcdcdc; /* Light text color for high contrast */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Hide scrollbars */
+}
+
+/* Container for Monaco Editor */
+#container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 60px); /* Adjust height to fit header + editor */
+}
+
+/* Editor Styling */
+#monaco-editor {
+    flex: 1;
+    background-color: #1e1e1e;
+    border: 1px solid #333; /* Subtle border for separation */
+    margin: 10px;
+    border-radius: 8px; /* Slightly rounded corners for a modern look */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+}
+
+/* Header Actions Section */
+#actions {
+    padding: 10px 20px;
+    background-color: #2d2d2d; /* Dark background for the header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3); /* Light shadow for separation */
+    border-bottom: 1px solid #333;
+    height: 60px; /* Fixed height for header */
+    margin: 0;
+    border-radius: 8px; /* Consistent rounded corners */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Professional Buttons */
+button {
+    padding: 10px 15px;
+    background-color: #007acc; /* Primary button color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    background-color: #005b99; /* Darker shade on hover */
+    box-shadow: 0px 4px 10px rgba(0, 122, 204, 0.4); /* Slight shadow for depth */
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+
+button:active {
+    background-color: #004d80; /* Even darker shade on click */
+    box-shadow: none;
+    transform: translateY(1px); /* Push down effect */
+}
+
+/* Language Select Styling */
+#language-select {
+    padding: 8px;
+    background-color: #2d2d2d;
+    color: #dcdcdc;
+    border: 1px solid #333;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#language-select:hover {
+    background-color: #3d3d3d;
+    border-color: #007acc; /* Highlight border color on hover */
+}
+
+/* Save and GitHub Modals Styling */
+#save-modal, #github-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2d2d2d;
+    padding: 20px;
+    border-radius: 8px; /* Consistent rounded corners */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7); /* Enhanced shadow for modals */
+    z-index: 1000;
+    color: #dcdcdc;
+    font-family: 'Source Code Pro', monospace;
+    max-width: 90%; /* Responsive width */
+    width: 400px; /* Fixed width for larger screens */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Modal Input Fields */
+#save-modal input, #github-modal input {
+    width: calc(100% - 22px); /* Adjust width to fit inside padding */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #1e1e1e;
+    color: #dcdcdc;
+    font-size: 14px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Output Box Styling */
+#output {
+    margin: 10px;
+    background-color: #2d2d2d;
+    padding: 12px;
+    border-radius: 6px;
+    color: #dcdcdc;
+    font-size: 14px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* Light shadow for output */
+    overflow: hidden; /* Hide overflow if content exceeds */
+}
+
+/* Modals Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#save-modal, #github-modal {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Typography for the Editor */
+code, pre {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 14px;
+    color: #dcdcdc;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+    #actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #save-modal, #github-modal {
+        max-width: 90%;
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    #actions {
+        padding: 10px;
+    }
+
+    button {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    #language-select {
+        font-size: 12px;
+    }
+}
+/* Templates Dropdown Styling */
+#template-select {
+    padding: 8px;
+    background-color: #2d2d2d;
+    color: #dcdcdc;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#insert-template {
+    padding: 10px 15px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+#insert-template:hover {
+    background-color: #005b99;
+}
+/* Theme Selector Styling */
+#theme-select {
+    padding: 8px;
+    background-color: #2d2d2d;
+    color: #dcdcdc;
+    border: 1px solid #333;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#theme-select:hover {
+    background-color: #3d3d3d;
+}
+/* Comment Button and Input Styling */
+#add-comment {
+    padding: 10px 15px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+#add-comment:hover {
+    background-color: #005b99;
+}
+
+#comment-text {
+    padding: 8px;
+    background-color: #2d2d2d;
+    color: #dcdcdc;
+    border: 1px solid #333;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-right: 10px;
+    width: 200px;
+}
+/* No specific CSS needed for auto-save, but you might add a notification */
+#notification {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    display: none; /* Initially hidden */
+}
+
+#notification.show {
+    display: block;
+}
+/* Terminal Panel Styling */
+#terminal-panel {
+    background-color: #1e1e1e;
+    color: #dcdcdc;
+    border: 1px solid #333;
+    border-radius: 4px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+#terminal {
+    flex: 1;
+    overflow: auto;
+}
+/* Basic styling for the layout and button */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    background-color: #1e1e1e;
+    overflow: hidden; /* Prevent scrollbars */
+}
+/* Style for the Load and Save buttons */
+#load-file-btn, #save-file-btn {
+    padding: 10px 20px;
+    background-color: #4c4c4c;
+    border: none;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+#load-file-btn:hover, #save-file-btn:hover {
+    background-color: #606060;
+}
+
+/* Editor container style */
+#editor {
+    flex-grow: 1; /* Take up all available space */
+    background-color: #1e1e1e;
+}
+
+/* Hide the file input */
+input[type="file"] {
+    display: none;
+}
+
+/* Project Management Icon Styles */
+#pm-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#pm-icon:hover {
+    background-color: #0056b3;
+}
+
+/* Project Management Panel Styles */
+#pm-panel {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 400px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 20px;
+    display: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+#pm-panel h2 {
+    margin-top: 0;
+}
+
+#pm-tasks, #pm-milestones {
+    margin-bottom: 20px;
+}
+
+#pm-tasks ul, #pm-milestones ul {
+    list-style-type: none;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#pm-tasks li, #pm-milestones li {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+#pm-tasks button, #pm-milestones button {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#pm-tasks button:hover, #pm-milestones button:hover {
+    background-color: #0056b3;
+}
+
+#close-pm-panel {
+    background-color: #dc3545;
+}
+
+#close-pm-panel:hover {
+    background-color: #c82333;
+}

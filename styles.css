@@ -1,0 +1,343 @@
+body {
+    font-family: 'Fira Code', monospace; 
+    background-color: #0d1117; 
+    color: #c9d1d9; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; 
+    overflow: hidden; 
+}
+
+/* Container for Monaco Editor and Actions */
+#container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 60px); 
+}
+
+/* Editor Styling */
+#monaco-editor {
+    flex: 1;
+    background-color: #161b22;
+    border: 1px solid #30363d; 
+    margin: 20px;
+    border-radius: 12px; 
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Header Actions Section */
+#actions {
+    padding: 14px 28px;
+    background-color: #161b22; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #30363d;
+    height: 60px; 
+    border-radius: 12px; 
+    box-sizing: border-box; 
+}
+
+/* Modern Buttons */
+button {
+    padding: 14px 20px;
+    background-color: #58a6ff; 
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    background-color: #339af0; 
+    box-shadow: 0 6px 30px rgba(88, 170, 255, 0.6); 
+    transform: translateY(-4px); 
+}
+
+button:active {
+    background-color: #1d8cf8; 
+    box-shadow: none;
+    transform: translateY(2px);
+}
+
+/* Select Dropdown Styling */
+#language-select, #template-select, #theme-select {
+    padding: 12px;
+    background-color: #21262d;
+    color: #c9d1d9;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#language-select:hover, #template-select:hover, #theme-select:hover {
+    background-color: #2a2f36;
+    border-color: #58a6ff; 
+}
+
+/* Save and GitHub Modals Styling */
+#save-modal, #github-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #21262d;
+    padding: 30px;
+    border-radius: 12px; 
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.8); 
+    z-index: 1000;
+    color: #c9d1d9;
+    font-family: 'Fira Code', monospace;
+    max-width: 90%; 
+    width: 440px; 
+    box-sizing: border-box; 
+}
+
+/* Modal Input Fields */
+#save-modal input, #github-modal input {
+    width: calc(100% - 24px); 
+    padding: 14px;
+    margin-bottom: 20px;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    background-color: #161b22;
+    color: #c9d1d9;
+    font-size: 16px;
+    box-sizing: border-box; 
+}
+
+/* Output Box Styling */
+#output {
+    margin: 20px;
+    background-color: #21262d;
+    padding: 15px;
+    border-radius: 12px;
+    color: #c9d1d9;
+    font-size: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden; 
+}
+
+/* Modals Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#save-modal, #github-modal {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Typography for the Editor */
+code, pre {
+    font-family: 'Fira Code', monospace;
+    font-size: 16px;
+    color: #c9d1d9;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+    #actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    button {
+        width: 100%;
+        margin-bottom: 14px;
+    }
+
+    #save-modal, #github-modal {
+        max-width: 90%;
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    #actions {
+        padding: 14px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    #language-select, #template-select, #theme-select {
+        font-size: 14px;
+    }
+}
+
+/* Project Management Icon Styles */
+#pm-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #58a6ff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 20px;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#pm-icon:hover {
+    background-color: #092a44;
+    transform: scale(1.1); 
+}
+
+/* Project Management Panel Styles */
+#pm-panel {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 340px;
+    height: 420px;
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    padding: 24px;
+    display: none;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    border-radius: 12px 12px 0 0;
+    z-index: 1000;
+    overflow-y: auto;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#pm-panel.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#pm-panel.hide {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+#pm-panel h2 {
+    margin-top: 0;
+    color: #58a6ff;
+    border-bottom: 3px solid #58a6ff;
+    padding-bottom: 14px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* Project Management Tasks and Milestones */
+#pm-tasks, #pm-milestones {
+    margin-bottom: 24px;
+}
+
+#pm-tasks ul, #pm-milestones ul {
+    list-style-type: none;
+    padding: 0;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+#pm-tasks li, #pm-milestones li {
+    padding: 14px;
+    border-bottom: 1px solid #30363d;
+    border-radius: 10px;
+    background-color: #21262d;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#pm-tasks li:hover, #pm-milestones li:hover {
+    background-color: #2a2f36;
+    transform: scale(1.03); 
+}
+
+/* Add Task/Milestone Button */
+#pm-tasks button, #pm-milestones button {
+    padding: 12px;
+    background-color: #61afef;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#pm-tasks button:hover, #pm-milestones button:hover {
+    background-color: #357abd;
+    transform: scale(1.02);
+}
+
+/* Close Panel Button */
+#close-pm-panel {
+    padding: 12px;
+    background-color: #e94e77;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#close-pm-panel:hover {
+    background-color: #d43f5e;
+}
+
+/* Terminal Panel Styling */
+#terminal-panel {
+    background-color: #161b22;
+    color: #e0e0e0;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 20px;
+}
+
+#terminal {
+    flex: 1;
+    overflow: auto;
+}
+
+/* File Input Styling */
+input[type="file"] {
+    display: none;
+}
+
+/* Load and Save Buttons */
+#load-file-btn, #save-file-btn {
+    padding: 12px 20px;
+    background-color: #4c4c4c;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-right: 12px;
+    transition: background-color 0.3s ease;
+}
+
+#load-file-btn:hover, #save-file-btn:hover {
+    background-color: #666;
+}

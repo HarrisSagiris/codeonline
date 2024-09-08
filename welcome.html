@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Codeonline</title>
+    <link rel="stylesheet" href="welcomestyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script defer src="particles-config.js"></script>
+    <style>
+        /* Transition CSS */
+        .fade-out {
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+        .fade-in {
+            opacity: 1;
+            transition: opacity 1s ease-in;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="welcome-container fade-in">
+        <h1>Welcome to Codeonline</h1>
+        <h2>Empower Your Coding Experience</h2>
+        <p>Get started with our cutting-edge code editor, designed for efficiency and ease. Write, debug, and execute your code seamlessly.</p>
+        <a href="editor.html" class="get-started-btn" id="get-started-btn">Get Started</a>
+    </div>
+    <footer class="footer">
+        <p>© 2024 codeonline. A website created by Harris Sagiris.
+         <p>support@codeonline.gr</p>
+        </p>
+        <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        document.getElementById('get-started-btn').addEventListener('click', function() {
+            document.querySelector('.welcome-container').classList.add('fade-out');
+            setTimeout(function() {
+                window.location.href = 'editor.html';
+            }, 1000); 
+        });
+    </script>
+</body>
+</html>
