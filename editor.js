@@ -182,7 +182,7 @@ document.getElementById('run-code').addEventListener('click', function() {
     if (results.length > 0) {
         alert('Linting errors found:\n' + results.map(result => `${result.message} at line ${result.line}`).join('\n'));
     } else {
-        alert('No linting errors found.');
+        alert('No linting errors found.'); 
     }
 });
 
