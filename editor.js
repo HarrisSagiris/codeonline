@@ -186,5 +186,5 @@ document.getElementById('run-code').addEventListener('click', function() {
     }
 });
 
-//basic funcionality is done!!!
-//ready for public domain : codeonline.gr
+//basic funcionality done!!!
+
