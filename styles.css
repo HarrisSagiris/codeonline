@@ -341,3 +341,51 @@ input[type="file"] {
 #load-file-btn:hover, #save-file-btn:hover {
     background-color: #666;
 }
+/* Styling for the file tabs and add file button */
+.file-tabs {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+}
+
+.file-tabs button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #444;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.file-tabs button:hover {
+    background-color: #555;
+}
+
+.file-tab {
+    background-color: #282c34;
+    border: 1px solid #555;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.file-tab.active {
+    background-color: #61dafb;
+    color: #000;
+}
+
+.add-file-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-file-btn:hover {
+    background-color: #0056b3;
+}
