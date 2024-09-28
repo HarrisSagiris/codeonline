@@ -121,6 +121,7 @@ document.getElementById('file-input').addEventListener('change', function(event)
             <form id="save-form" onsubmit="saveLocal(); return false;">
                 <input type="text" id="file-name" placeholder="Enter file name" autofocus>
                 <button type="submit">Save</button>
+                <input onclick="closeSaveModal()" type="Cancel" value="Cancel">
             </form>
         </div>
     </div>
@@ -134,6 +135,7 @@ document.getElementById('file-input').addEventListener('change', function(event)
             <input type="text" id="repo-name" placeholder="Enter repository name (e.g., username/repo)">
             <input type="text" id="file-path" placeholder="Enter file path in repository (e.g., path/to/file.js)">
             <button onclick="uploadToGitHub()">Upload</button>
+            <button onclick="closeGitHubModal()">Cancel</button>
         </div>
     </div>
     
